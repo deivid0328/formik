@@ -9,11 +9,16 @@ const App = () => {
       lastname:'',
       email:'',
     },
+    validate:(values) =>{
+      const errors={}
+      errors.name='Requerido'
+      return errors
+    },
     onSubmit:values=> console.log(values)
   })
 
   return (
-    <from onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit}>
       <label>Nombre</label>
       <input
         name='name'
@@ -30,15 +35,15 @@ const App = () => {
         value={formik.values.lastname}
       />
 
-    <label>Nombre</label>
+    <label>Correo Electronico</label>
       <input
         name='email'
         type='email'
         onChange={formik.handleChange}
         value={formik.values.email}
       />
-      <button>Enviar</button>
-    </from>
+      <button type='submit'>Enviar</button>
+    </form>
   )
 }
 
